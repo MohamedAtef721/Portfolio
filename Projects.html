@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Projects | Mohamed Atef</title>
+    <meta name="author" content="Mohamed Atef">
+    <meta name="description" content="Data analysis projects using Python, SQL, Excel, and Power BI.">
+
+    <!-- Stylesheets and Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;👨🏻‍💻&lt;/text&gt;&lt;/svg&gt;">
+
+    <style>
+        :root {
+            /* Light Mode */
+            --bg-color: #f5f7ff;
+            --text-color: #475569;
+            --heading-color: rgb(0, 0, 0);
+            --theme-color: #8b5cf6; 
+            --card-bg-color: #ffffff;
+            --card-border-color: #e2e8f0;
+            --navbar-bg-color: rgba(255, 255, 255, 0.9);
+            --shadow-color: rgba(139, 92, 246, 0.1);
+            --glow-color: rgba(139, 92, 246, 0.2);
+            --accent-gradient: linear-gradient(135deg, #8b5cf6, #b446ef);
+        }
+
+        html[data-theme='dark'] {
+            /* Dark Mode */
+            --bg-color: #0f0f2a; 
+            --text-color: #94a3b8;
+            --heading-color: #f8fafc;
+            --theme-color: #a78bfa;
+            --card-bg-color: #24243e;
+            --card-border-color: #334155;
+            --navbar-bg-color: rgba(26, 26, 46, 0.9);
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --glow-color: rgba(139, 92, 246, 0.4);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding-top: 80px;
+            transition: background-color 0.4s ease, color 0.4s ease;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 { font-family: 'Roboto Slab', serif; color: var(--heading-color); font-weight: 700; }
+        
+        /* Navbar */
+        .navbar {
+            background-color: var(--navbar-bg-color);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--card-border-color);
+            padding: 0.75rem 1rem;
+        }
+        .navbar-brand { font-family: 'Roboto Slab', serif; font-size: 1.5rem; color: var(--heading-color) !important; }
+        .nav-link { font-weight: 500; color: var(--text-color) !important; }
+        .nav-item.active .nav-link { color: var(--theme-color) !important; font-weight: 700; }
+        
+        /* Theme Toggle Button */
+        .theme-toggle-btn {
+            background: transparent; border: 1px solid var(--card-border-color); color: var(--heading-color);
+            width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem; cursor: pointer; transition: 0.3s ease;
+        }
+        .theme-toggle-btn .fa-sun { display: none; }
+        html[data-theme='dark'] .theme-toggle-btn .fa-sun { display: block; }
+        html[data-theme='dark'] .theme-toggle-btn .fa-moon { display: none; }
+
+        /* Page Header */
+        .post-header { text-align: center; margin-bottom: 4rem; padding-top: 2rem; }
+        .post-title { font-size: 3.5rem; margin-bottom: 1rem; }
+        .post-description { font-size: 1.2rem; color: var(--text-color); max-width: 700px; margin: 0 auto; }
+
+        /* Project Cards */
+        .Project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+        .project-card-link { text-decoration: none !important; display: block; height: 100%; }
+        .project-card {
+            background: var(--card-bg-color);
+            border: 1px solid var(--card-border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .project-card-link:hover .project-card { 
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px var(--glow-color);
+            border-color: var(--theme-color);
+        }
+        .project-image { 
+            width: 100%; aspect-ratio: 16 / 9; object-fit: cover; 
+            border-bottom: 1px solid var(--card-border-color); 
+        }
+        .project-content { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
+        .project-card-title { font-size: 1.4rem; margin-bottom: 0.8rem; color: var(--heading-color); }
+        .project-description { font-size: 0.95rem; line-height: 1.6; color: var(--text-color); margin-bottom: 1.5rem; flex-grow: 1; }
+        
+        /* Tech Tags */
+        .project-tech { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem; }
+        .tech-tag {
+            background: rgba(139, 92, 246, 0.1);
+            color: var(--theme-color);
+            font-size: 0.75rem;
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-weight: 600;
+            border: 1px solid rgba(139, 92, 246, 0.1);
+        }
+
+        .project-links { 
+            padding-top: 1rem; border-top: 1px solid var(--card-border-color); 
+            display: flex; justify-content: flex-end; 
+        }
+        .project-link { font-weight: 700; font-size: 0.9rem; color: var(--theme-color); }
+
+        /* Social and Footer */
+        .social { text-align: center; padding: 4rem 0; }
+        .contact-icons { display: flex; justify-content: center; gap: 2rem; align-items: center; margin-bottom: 1.5rem; }
+        .contact-icons a { font-size: 2.2rem; color: var(--text-color); transition: 0.3s ease; }
+        .contact-icons a:hover { transform: translateY(-5px); color: var(--theme-color); }
+        .contact-icons img { height: 32px; width: auto; }
+        footer { padding: 2rem 0; text-align: center; border-top: 1px solid var(--card-border-color); margin-top: 2rem; }
+
+        @media (max-width: 768px) {
+            .post-title { font-size: 2.5rem; }
+            .Project-grid { grid-template-columns: 1fr; }
+        }
+        .contact-title {
+    font-family: 'Roboto Slab', serif;
+    font-size: 2.2rem;
+    color: var(--heading-color);
+    margin-bottom: 2.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+
+.contact-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--accent-gradient);
+    margin: 15px auto 0;
+    border-radius: 10px;
+}
+
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: var(--card-bg-color); 
+        border: 1px solid var(--card-border-color);
+        border-radius: 24px;
+        padding: 2rem 1.5rem;
+        margin-top: 15px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    .navbar-nav {
+        align-items: flex-start !important; 
+    }
+
+    .nav-item {
+        margin-bottom: 15px;
+    }
+
+    .nav-link {
+        font-size: 1.6rem !important; 
+        font-weight: 700 !important;
+        padding: 0 !important;
+        color: var(--text-color) !important;
+    }
+
+    .nav-item.active .nav-link {
+        color: var(--theme-color) !important;
+    }
+
+  
+    .theme-mobile-container {
+        width: 100%;
+        margin-top: 20px;
+        padding-top: 25px;
+        border-top: 1px solid var(--card-border-color); 
+    }
+
+    .theme-toggle-btn {
+        margin-left: 0 !important;
+        border: 1px solid var(--card-border-color);
+        width: 45px;
+        height: 45px;
+    }
+}
+
+
+@media (min-width: 992px) {
+    .theme-mobile-container {
+        margin-left: 15px;
+        display: flex;
+        align-items: center;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="./About.html">Mohamed Atef</a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <i class="fas fa-bars" style="color: var(--heading-color);"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="./index.html">About</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="./Projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./Contact.html">Contact</a></li>
+                    
+                    <!-- الحاوية الخاصة بزر الثيم والخط الفاصل في الموبايل -->
+                    <li class="nav-item theme-mobile-container">
+                        <button class="theme-toggle-btn" id="theme-toggle">
+                            <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <div class="container mt-5 py-4">
+        <header class="post-header g-fade-in-up">
+            <h1 class="post-title">Featured Projects</h1>
+            <p class="post-description">A collection of my Real-world projects using Python, Machine Learning, and SQL.</p>
+        </header>
+        
+        <div class="Project-grid">
+           <!-- Project Card 1 -->
+            <a href="https://github.com/MohamedAtef721/Movies-Analysis" target="_blank" class="project-card-link g-fade-in-up">
+                <div class="project-card">
+                    <img class="project-image" src="icons/Red Black Modern Cinema Movie Presentation.jpg" alt="Movie Analysis">
+                    <div class="project-content">
+                        <h4 class="project-card-title">Movie Data Analysis</h4>
+                        <p class="project-description">Performed Exploratory Data Analysis (EDA) on movie datasets using Python, Pandas, and Matplotlib to uncover trends, rating distributions, and genre insights.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Data Analysis</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Matplotlib</span>
+                            <span class="tech-tag">Data Visualization</span>
+                            <span class="tech-tag">EDA</span>
+                            <span class="tech-tag">Data Cleaning</span>
+                            <span class="tech-tag">Data Preprocessing</span>
+                            <span class="tech-tag">Data Transformation</span>
+                            <span class="tech-tag">Data Exploration</span>
+                        </div>
+                        <div class="project-links"><span class="project-link"><i class="fab fa-github"></i> View on GitHub</span></div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project Card 2 -->
+             <a href="https://github.com/MohamedAtef721/Books-Sales-EDA-Visualization" target="_blank" class="project-card-link g-fade-in-up">
+                <div class="project-card">
+                    <img class="project-image" src="icons/Books Sales & Ratings Analysis.jpg" alt="Books Analysis">
+                    <div class="project-content">
+                        <h4 class="project-card-title">Books Sales & Ratings Analysis</h4>
+                        <p class="project-description">This project analyzes a Books Dataset using Python and data visualization. It includes sales, ratings, authors, genres, and publication details to explore trends in book popularity and revenue.</p>
+                        <div class="project-tech">
+                           <span class="tech-tag">Data Analysis</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">matplotlib</span>
+                        <span class="tech-tag">data-visualization</span>
+                        <span class="tech-tag">sales-analysis</span>
+                        </div>
+                        <div class="project-links"><span class="project-link"><i class="fab fa-github"></i> View on GitHub</span></div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project Card 3 -->
+            <a href="https://github.com/MohamedAtef721/Telecom-Management-System-sql-Project" target="_blank" class="project-card-link g-fade-in-up">
+                <div class="project-card">
+                    <img class="project-image" src="icons/Telecom-Management-System-sql.jpg" alt="SQL Project">
+                    <div class="project-content">
+                        <h4 class="project-card-title">Telecom SQL System</h4>
+                        <p class="project-description">Telecom Management System built with SQL Server featuring ERD design, advanced SQL (Views, Functions, Stored Procedures, Triggers, Cursors), and business analytics for usage monitoring and revenue insights.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Database Design</span>
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">ERD</span>
+                            <span class="tech-tag">Views</span>
+                            <span class="tech-tag">Functions</span>
+                            <span class="tech-tag">Triggers</span>
+                            <span class="tech-tag">Cursors</span>
+                            <span class="tech-tag">Stored Procedures</span>
+                        </div>
+                        <div class="project-links"><span class="project-link"><i class="fab fa-github"></i> View on GitHub</span></div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project Card 4 -->
+            <a href="https://github.com/MohamedAtef721/E-Commerce-Analytics" target="_blank" class="project-card-link g-fade-in-up">
+                <div class="project-card">
+                    <img class="project-image" src="icons/E-Commerce Analytics (2).jpg" alt="E-Commerce">
+                    <div class="project-content">
+                        <h4 class="project-card-title">E-Commerce-Analytics</h4>
+                        <p class="project-description">An interactive E-Commerce Analytics Dashboard built with Python, Plotly, and Dash. It provides insights into sales trends, customer behavior, product performance, and geographical distribution.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Data Analysis</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">data-visualization</span>
+                            <span class="tech-tag">matplotlib</span>
+                            <span class="tech-tag">Plotly</span>
+                            <span class="tech-tag">Dash</span>
+                            <span class="tech-tag">sales-analysis</span>
+                        </div>
+                        <div class="project-links"><span class="project-link"><i class="fab fa-github"></i> View on GitHub</span></div>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Project Card 5 -->
+            <a href="https://github.com/MohamedAtef721/Car-Price-Prediction" target="_blank" class="project-card-link g-fade-in-up">
+                <div class="project-card">
+                    <img class="project-image" src="icons/Car Price Prediction (1).jpg" alt="ML Project">
+                    <div class="project-content">
+                        <h4 class="project-card-title">Car Price Prediction</h4>
+                        <p class="project-description">Developed a machine learning regression model to predict car prices using Python and scikit-learn. Applied data analysis, preprocessing, feature engineering, and model evaluation techniques to identify the most accurate model.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">Regression</span>
+                            <span class="tech-tag">Data Analysis</span>
+                            <span class="tech-tag">Preprocessing</span>
+                            <span class="tech-tag">Feature Engineering</span>
+                            <span class="tech-tag">Model Evaluation</span>
+                        </div>
+                        <div class="project-links"><span class="project-link"><i class="fab fa-github"></i> View on GitHub</span></div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project Card 6 -->
+            <a href="https://github.com/MohamedAtef721/Diabetes-Prediction" target="_blank" class="project-card-link g-fade-in-up">
+                <div class="project-card">
+                    <img class="project-image" src="icons/Diabetes.jpg" alt="Health Analysis">
+                    <div class="project-content">
+                        <h4 class="project-card-title">Diabetes Prediction</h4>
+                        <p class="project-description">This project applies several machine learning models to the Diabetes Dataset to predict whether a person is likely to have diabetes. The code includes data loading, model training, evaluation, and visual comparison using metrics such as accuracy, recall, precision, and F1-score.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">Regression</span>
+                            <span class="tech-tag">Data Analysis</span>
+                            <span class="tech-tag">Preprocessing</span>
+                            <span class="tech-tag">Feature Engineering</span>
+                            <span class="tech-tag">Model Training</span>
+                            <span class="tech-tag">Model Evaluation</span>
+                        </div>
+                        <div class="project-links"><span class="project-link"><i class="fab fa-github"></i> View on GitHub</span></div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <div class="social g-fade-in">
+        <h4 class="contact-title g-fade-in-up">Get In Touch</h4>
+        <div class="contact-icons">
+            <a href="mailto:mohamedatef.engineer@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/mohamed-atef22/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/MohamedAtef721" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://mostaql.com/u/mohamed_aatef" target="_blank"><img src="icons/mostaql.png" alt="Mostaql"/></a>
+            <a href="https://khamsat.com/user/mohamed_aatef" target="_blank"><img src="icons/Khamsat.png" alt="Khamsat"/></a>
+        </div>
+       <div class="contact-note">Always Open to collaborations, freelance projects, and exciting data opportunities.</div>
+    </div>
+
+    <footer><div class="container"><p>© Copyright 2026 Mohamed Atef.</p></div></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // --- THEME TOGGLE (Synced) ---
+            const themeToggle = document.getElementById('theme-toggle');
+            const applyTheme = (theme) => {
+                document.documentElement.setAttribute('data-theme', theme);
+                localStorage.setItem('theme', theme);
+            };
+            themeToggle.addEventListener('click', () => {
+                const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                applyTheme(newTheme);
+            });
+            applyTheme(localStorage.getItem('theme') || 'light');
+
+            // --- GSAP ANIMATIONS ---
+            gsap.utils.toArray('.g-fade-in-up').forEach((el, i) => {
+                gsap.from(el, {
+                    scrollTrigger: { trigger: el, start: 'top 90%' },
+                    opacity: 0, y: 30, duration: 0.8, delay: i * 0.1
+                });
+            });
+        });
+    </script>
+</body>
+</html>
