@@ -288,6 +288,47 @@ footer {
         text-align: center;
     }
 }
+
+/* Load More Button Styling */
+.certificate-hidden {
+    display: none;
+}
+
+.load-more-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.load-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 35px;
+    background: var(--accent-gradient);
+    color: white !important;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: 0.3s;
+    box-shadow: 0 10px 20px var(--shadow-color);
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.load-more-btn:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.1);
+    box-shadow: 0 15px 25px var(--glow-color);
+}
+
+.load-more-btn i {
+    transition: transform 0.3s;
+}
+
+.load-more-btn:hover i {
+    transform: translateY(3px);
+}
+
 /* Modern Certificate Viewer Styles */
 .portfolio-modal {
     position: fixed;
@@ -438,7 +479,7 @@ footer {
 
     <div class="container">
         <header class="post-header">
-            <h1 class="post-title g-fade-in-up">Hello! I’m <span class="font-weight-bold">Mohamed</span></h1>
+            <h1 class="post-title g-fade-in-up">Hello! I'm <span class="font-weight-bold">Mohamed</span></h1>
             <p class="desc g-fade-in-up"><span id="typed-text"></span></p>
         </header>
 
@@ -463,7 +504,7 @@ footer {
                 </a>
 
             </div>
-            
+             <!-- profile-pic -->
             <div class="profile-image-container g-fade-in-right">
                 <img class="profile-pic" src="icons/IMG_20250210_152201.jpg" alt="Mohamed Atef">
             </div>
@@ -477,7 +518,7 @@ footer {
                     <div class="info-card g-fade-in-up" onclick="this.classList.toggle('active')">
                         <i class="fas fa-graduation-cap info-icon"></i>
                         <div class="info-title">Computer Science</div>
-                        <div class="info-subtitle">Bachelor’s Degree - EELU</div>
+                        <div class="info-subtitle">Bachelor's Degree - EELU</div>
                         <div class="info-details">Graduated from the Egyptian E-Learning University (EELU) with a Bachelor's Degree in Information Technology, <b>Very Good with Honors</b></div>
                     </div>
                 </div>
@@ -570,9 +611,9 @@ footer {
         
 <div class="content-section">
     <h4 class="g-fade-in-left">Certificates & Achievements</h4>
-    <div class="row">
+    <div class="row" id="certificatesContainer">
         <!-- c1: Data Science Professional Certificate -->
-        <div class="col-md-6 mb-4">
+        <div class="col-md-6 mb-4 certificate-item">
             <div class="certificate-card g-fade-in-up">
                 <div class="cert-badge">
                     <i class="fas fa-brain"></i> 
@@ -588,10 +629,9 @@ footer {
         </div>
 
          <!-- c2: Python Programming Certificate  -->
-<div class="col-md-6 mb-4">
+<div class="col-md-6 mb-4 certificate-item">
     <div class="certificate-card g-fade-in-up">
         <div class="cert-badge">
-            <!-- تم تغيير الأيقونة هنا -->
             <i class="fab fa-python"></i> 
         </div>
         <div class="cert-content">
@@ -604,7 +644,7 @@ footer {
     </div>
 </div>
         <!-- c3: Database Fundamentals -->
-        <div class="col-md-6 mb-4">
+        <div class="col-md-6 mb-4 certificate-item">
             <div class="certificate-card g-fade-in-up">
                 <div class="cert-badge">
                     <i class="fas fa-database"></i> 
@@ -619,7 +659,7 @@ footer {
             </div>
         </div>
         <!-- c4: Transact SQL queries -->
-        <div class="col-md-6 mb-4">
+        <div class="col-md-6 mb-4 certificate-item">
             <div class="certificate-card g-fade-in-up">
                 <div class="cert-badge">
                     <i class="fas fa-table"></i> 
@@ -634,7 +674,7 @@ footer {
             </div>
         </div>
         <!-- c5: Advanced Database Certificate -->
-        <div class="col-md-6 mb-4">
+        <div class="col-md-6 mb-4 certificate-item">
             <div class="certificate-card g-fade-in-up">
                 <div class="cert-badge">
                     <i class="fas fa-database"></i>  
@@ -648,9 +688,26 @@ footer {
                 </div>
             </div>
         </div>
+
+
+        <!-- c6: Introduction to mongoDB -->
+        <div class="col-md-6 mb-4 certificate-item">
+            <div class="certificate-card g-fade-in-up">
+                <div class="cert-badge">
+                    <i class="fas fa-database"></i>  
+                </div>
+                <div class="cert-content">
+                    <h5>Introduction to mongoDB</h5>
+                    <p>Issued by: MaharaTech – Information Technology Institute (ITI)</p>
+                    <a href="javascript:void(0)" onclick="openViewer('https://drive.google.com/file/d/1nBthcU-hGDpGNAu5G01ibQFusTDQcJC2/view?usp=sharing', 'Introduction to mongoDB')" class="verify-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+            </div>
+        </div>
         
-        <!-- c6: CCNA - Introduction to Networks -->
-        <div class="col-md-6 mb-4">
+        <!-- c7: CCNA - Introduction to Networks - HIDDEN BY DEFAULT -->
+        <div class="col-md-6 mb-4 certificate-item certificate-hidden">
             <div class="certificate-card g-fade-in-up">
                 <div class="cert-badge">
                     <i class="fas fa-network-wired"></i> 
@@ -665,8 +722,8 @@ footer {
             </div>
         </div>
 
-        <!-- c7: Device Configuration and Management -->
-        <div class="col-md-6 mb-4">
+        <!-- c8: Device Configuration and Management - HIDDEN BY DEFAULT -->
+        <div class="col-md-6 mb-4 certificate-item certificate-hidden">
             <div class="certificate-card g-fade-in-up">
                 <div class="cert-badge">
                     <i class="fas fa-laptop-code"></i> 
@@ -680,6 +737,14 @@ footer {
                 </div>
             </div>
         </div>
+    </div>
+    
+    <!-- Load More Button -->
+    <div class="load-more-container">
+        <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreCertificates()">
+            <span id="btnText">Show More Certificates</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
     </div>
 </div>
 
@@ -754,42 +819,97 @@ footer {
             });
             applyTheme(localStorage.getItem('theme') || 'light');
         });
+        
         function openViewer(certUrl, title) {
-    const modal = document.getElementById('certViewer');
-    const iframe = document.getElementById('certFrame');
-    const loader = document.getElementById('modalLoader');
-    
+            const modal = document.getElementById('certViewer');
+            const iframe = document.getElementById('certFrame');
+            const loader = document.getElementById('modalLoader');
+            
 
-    let finalUrl = certUrl;
-    if (certUrl.includes('drive.google.com')) {
-        finalUrl = certUrl.replace('/view', '/preview');
-    }
+            let finalUrl = certUrl;
+            if (certUrl.includes('drive.google.com')) {
+                finalUrl = certUrl.replace('/view', '/preview');
+            }
 
-    document.getElementById('certTitle').innerText = title;
-    iframe.src = finalUrl;
-    loader.style.display = 'block';
-    modal.style.display = 'flex';
-    
+            document.getElementById('certTitle').innerText = title;
+            iframe.src = finalUrl;
+            loader.style.display = 'block';
+            modal.style.display = 'flex';
+            
 
-    gsap.fromTo(".portfolio-modal-content", 
-        { scale: 0.7, opacity: 0 }, 
-        { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.5)" }
-    );
-    
-    document.body.style.overflow = 'hidden'; 
-}
-
-function closeViewer() {
-    const modal = document.getElementById('certViewer');
-    gsap.to(".portfolio-modal-content", { 
-        scale: 0.7, opacity: 0, duration: 0.3, 
-        onComplete: () => {
-            modal.style.display = 'none';
-            document.getElementById('certFrame').src = '';
-            document.body.style.overflow = 'auto';
+            gsap.fromTo(".portfolio-modal-content", 
+                { scale: 0.7, opacity: 0 }, 
+                { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.5)" }
+            );
+            
+            document.body.style.overflow = 'hidden'; 
         }
-    });
-}
+
+        function closeViewer() {
+            const modal = document.getElementById('certViewer');
+            gsap.to(".portfolio-modal-content", { 
+                scale: 0.7, opacity: 0, duration: 0.3, 
+                onComplete: () => {
+                    modal.style.display = 'none';
+                    document.getElementById('certFrame').src = '';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+        
+        // Load More Certificates Function
+        let certificatesExpanded = false;
+        
+        function loadMoreCertificates() {
+            const allCerts = document.querySelectorAll('.certificate-item');
+            const btn = document.getElementById('loadMoreBtn');
+            const btnText = document.getElementById('btnText');
+            const btnIcon = btn.querySelector('i');
+            
+            if (!certificatesExpanded) {
+                // Show all certificates with animation
+                allCerts.forEach((cert, index) => {
+                    if (index >= 6) { // Animate certificates after the 6th one
+                        setTimeout(() => {
+                            cert.classList.remove('certificate-hidden');
+                            gsap.fromTo(cert, 
+                                { opacity: 0, y: 30 },
+                                { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }
+                            );
+                        }, (index - 6) * 100);
+                    }
+                });
+                
+                // Change button to "Show Less"
+                btnText.textContent = 'Show Less';
+                btnIcon.classList.remove('fa-chevron-down');
+                btnIcon.classList.add('fa-chevron-up');
+                certificatesExpanded = true;
+            } else {
+                // Hide certificates again
+                allCerts.forEach((cert, index) => {
+                    if (index >= 6) { // Hide certificates after the 6th one
+                        gsap.to(cert, {
+                            opacity: 0,
+                            y: -20,
+                            duration: 0.3,
+                            onComplete: () => {
+                                cert.classList.add('certificate-hidden');
+                                // Reset the inline styles
+                                cert.style.opacity = '';
+                                cert.style.transform = '';
+                            }
+                        });
+                    }
+                });
+                
+                // Change button back to "Show More"
+                btnText.textContent = 'Show More Certificates';
+                btnIcon.classList.remove('fa-chevron-up');
+                btnIcon.classList.add('fa-chevron-down');
+                certificatesExpanded = false;
+            }
+        }
     </script>
     <!-- Certificate Viewer Modal -->
 <div id="certViewer" class="portfolio-modal">

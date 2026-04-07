@@ -129,6 +129,47 @@
         }
         .project-link { font-weight: 700; font-size: 0.9rem; color: var(--theme-color); }
 
+        /* Load More Button */
+        .project-item-hidden {
+            display: none;
+        }
+
+        .load-more-container {
+            text-align: center;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .load-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 35px;
+            background: var(--accent-gradient);
+            color: white !important;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px var(--shadow-color);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .load-more-btn:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.1);
+            box-shadow: 0 15px 25px var(--glow-color);
+        }
+
+        .load-more-btn i {
+            transition: transform 0.3s;
+        }
+
+        .load-more-btn:hover i {
+            transform: translateY(3px);
+        }
+
         /* Social and Footer */
         .social { text-align: center; padding: 4rem 0; }
         .contact-icons { display: flex; justify-content: center; gap: 2rem; align-items: center; margin-bottom: 1.5rem; }
@@ -250,9 +291,9 @@
             <p class="post-description">A collection of my Real-world projects.</p>
         </header>
         
-        <div class="Project-grid">
+        <div class="Project-grid" id="projectsContainer">
             <!-- Project Card 1 -->
-            <a href="https://github.com/MohamedAtef721/Smart-Clinic-Management-System" target="_blank" class="project-card-link g-fade-in-up">
+            <a href="https://github.com/MohamedAtef721/Smart-Clinic-Management-System" target="_blank" class="project-card-link project-item g-fade-in-up">
                 <div class="project-card">
                     <img class="project-image" src="icons/Smart-Clinic-Management-System.png" alt="Clinic Management System">
                     <div class="project-content">
@@ -273,7 +314,7 @@
                 </div>
             </a>
            <!-- Project Card 2 -->
-            <a href="https://github.com/MohamedAtef721/Movies-Analysis" target="_blank" class="project-card-link g-fade-in-up">
+            <a href="https://github.com/MohamedAtef721/Movies-Analysis" target="_blank" class="project-card-link project-item g-fade-in-up">
                 <div class="project-card">
                     <img class="project-image" src="icons/Red Black Modern Cinema Movie Presentation.jpg" alt="Movie Analysis">
                     <div class="project-content">
@@ -297,7 +338,7 @@
             </a>
 
             <!-- Project Card 3 -->
-             <a href="https://github.com/MohamedAtef721/Books-Sales-EDA-Visualization" target="_blank" class="project-card-link g-fade-in-up">
+             <a href="https://github.com/MohamedAtef721/Books-Sales-EDA-Visualization" target="_blank" class="project-card-link project-item g-fade-in-up">
                 <div class="project-card">
                     <img class="project-image" src="icons/Books Sales & Ratings Analysis.jpg" alt="Books Analysis">
                     <div class="project-content">
@@ -317,7 +358,7 @@
             </a>
 
             <!-- Project Card 4 -->
-            <a href="https://github.com/MohamedAtef721/Telecom-Management-System-sql-Project" target="_blank" class="project-card-link g-fade-in-up">
+            <a href="https://github.com/MohamedAtef721/Telecom-Management-System-sql-Project" target="_blank" class="project-card-link project-item g-fade-in-up">
                 <div class="project-card">
                     <img class="project-image" src="icons/Telecom-Management-System-sql.jpg" alt="SQL Project">
                     <div class="project-content">
@@ -339,7 +380,7 @@
             </a>
 
             <!-- Project Card 5 -->
-            <a href="https://github.com/MohamedAtef721/E-Commerce-Analytics" target="_blank" class="project-card-link g-fade-in-up">
+            <a href="https://github.com/MohamedAtef721/E-Commerce-Analytics" target="_blank" class="project-card-link project-item g-fade-in-up">
                 <div class="project-card">
                     <img class="project-image" src="icons/E-Commerce Analytics (2).jpg" alt="E-Commerce">
                     <div class="project-content">
@@ -361,7 +402,7 @@
             </a>
             
             <!-- Project Card 6 -->
-            <a href="https://github.com/MohamedAtef721/Car-Price-Prediction" target="_blank" class="project-card-link g-fade-in-up">
+            <a href="https://github.com/MohamedAtef721/Car-Price-Prediction" target="_blank" class="project-card-link project-item g-fade-in-up">
                 <div class="project-card">
                     <img class="project-image" src="icons/Car Price Prediction (1).jpg" alt="ML Project">
                     <div class="project-content">
@@ -383,8 +424,8 @@
                 </div>
             </a>
 
-            <!-- Project Card 7 -->
-            <a href="https://github.com/MohamedAtef721/Diabetes-Prediction" target="_blank" class="project-card-link g-fade-in-up">
+            <!-- Project Card 7 - HIDDEN BY DEFAULT -->
+            <a href="https://github.com/MohamedAtef721/Diabetes-Prediction" target="_blank" class="project-card-link project-item project-item-hidden g-fade-in-up">
                 <div class="project-card">
                     <img class="project-image" src="icons/Diabetes.jpg" alt="Health Analysis">
                     <div class="project-content">
@@ -406,6 +447,18 @@
                     </div>
                 </div>
             </a>
+
+
+
+            
+        </div>
+        
+        <!-- Load More Button -->
+        <div class="load-more-container">
+            <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreProjects()">
+                <span id="btnText">Show More Projects</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
         </div>
     </div>
     
@@ -452,6 +505,60 @@
                 });
             });
         });
+        
+        // Load More Projects Function
+        let projectsExpanded = false;
+        
+        function loadMoreProjects() {
+            const allProjects = document.querySelectorAll('.project-item');
+            const btn = document.getElementById('loadMoreBtn');
+            const btnText = document.getElementById('btnText');
+            const btnIcon = btn.querySelector('i');
+            
+            if (!projectsExpanded) {
+                // Show all projects with animation
+                allProjects.forEach((project, index) => {
+                    if (index >= 6) { // Animate projects after the 6th one (index 5)
+                        setTimeout(() => {
+                            project.classList.remove('project-item-hidden');
+                            gsap.fromTo(project, 
+                                { opacity: 0, y: 30 },
+                                { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }
+                            );
+                        }, (index - 6) * 100);
+                    }
+                });
+                
+                // Change button to "Show Less"
+                btnText.textContent = 'Show Less';
+                btnIcon.classList.remove('fa-chevron-down');
+                btnIcon.classList.add('fa-chevron-up');
+                projectsExpanded = true;
+            } else {
+                // Hide projects again
+                allProjects.forEach((project, index) => {
+                    if (index >= 6) { // Hide projects after the 6th one
+                        gsap.to(project, {
+                            opacity: 0,
+                            y: -20,
+                            duration: 0.3,
+                            onComplete: () => {
+                                project.classList.add('project-item-hidden');
+                                // Reset the inline styles
+                                project.style.opacity = '';
+                                project.style.transform = '';
+                            }
+                        });
+                    }
+                });
+                
+                // Change button back to "Show More"
+                btnText.textContent = 'Show More Projects';
+                btnIcon.classList.remove('fa-chevron-up');
+                btnIcon.classList.add('fa-chevron-down');
+                projectsExpanded = false;
+            }
+        }
     </script>
 </body>
 </html>
