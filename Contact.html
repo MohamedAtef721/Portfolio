@@ -392,7 +392,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             gsap.registerPlugin(ScrollTrigger);
             
-            // Fade in animations (start immediately since preloader is gone)
+            // Fade in animations (start immediately)
             gsap.utils.toArray('.g-fade-in-up').forEach((el, i) => {
                 gsap.from(el, { 
                     scrollTrigger: { trigger: el, start: 'top 90%' },
