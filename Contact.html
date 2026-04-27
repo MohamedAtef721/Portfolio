@@ -441,7 +441,7 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    if (data.success === "true") {
+                    if (data.success === true) {
                         // Success state
                         submitBtn.style.background = "#22c55e";
                         btnText.innerText = "Message Sent!";
