@@ -121,7 +121,7 @@
         }
         .project-content { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
         .project-card-title { font-size: 1.4rem; margin-bottom: 0.8rem; color: var(--heading-color); }
-        .project-description { font-size: 0.95rem; line-height: 1.6; color: var(--text-color); margin-bottom: 1.5rem; flex-grow: 1; }
+        .project-description { font-size: 0.95rem; line-height: 1.6; color: var(--text-color); margin-bottom: 1.2rem; }
         
         /* Tech Tags */
         .project-tech { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem; }
@@ -138,6 +138,7 @@
         .project-links { 
             padding-top: 1rem; border-top: 1px solid var(--card-border-color); 
             display: flex; justify-content: flex-end; 
+            margin-top: auto;
         }
         .project-link { font-weight: 700; font-size: 0.9rem; color: var(--theme-color); }
 
@@ -305,12 +306,39 @@
         
         <div class="Project-grid" id="projectsContainer">
 
-           <!-- Project Card 1 -->
+               <!-- Project Card 1 -->
+            <a href="https://github.com/MohamedAtef721/ITI-Graduation-Project" target="_blank" class="project-card-link project-item g-fade-in-up">
+                <div class="project-card">
+                    <img class="project-image" src="icons/TIJARAH.png" alt="TIJARAH">
+                    <div class="project-content">
+                        <h4 class="project-card-title"> TIJARAH – AI-Powered Smart Inventory & Business Intelligence Platform (ITI Graduation Project)</h4>
+                        <p class="project-description">Developed an end-to-end Business Intelligence platform as an ITI Graduation Project, integrating a SQL Server Data Warehouse, SSIS ETL pipelines, interactive Power BI dashboards, an AI-powered business copilot for natural language analytics, sales forecasting using Prophet, and automated executive reporting through a Flask web application.</p>
+            <div class="project-tech">
+                            <span class="tech-tag">SQL Server</span>
+                            <span class="tech-tag">DWH</span>
+                            <span class="tech-tag">ETL</span>
+                            <span class="tech-tag">SSIS</span>
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">Tableau</span>
+                            <span class="tech-tag">Data Analysis</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">AI</span>
+                            <span class="tech-tag">Natural Language Processing</span>
+                            <span class="tech-tag">Business Intelligence</span>
+                            
+                        </div>
+                        <div class="project-links"><span class="project-link"><i class="fab fa-github"></i> View on GitHub</span></div>
+                    </div>
+                </div>
+            </a>        
+
+           <!-- Project Card 2 -->
             <a href="https://github.com/MohamedAtef721/Airline-Performance-Delay-Analysis-Dashboard" target="_blank" class="project-card-link project-item g-fade-in-up">
                 <div class="project-card">
                     <img class="project-image" src="icons/Airline Performance & Delay Analysis Dashboard.png" alt="Airline Performance Dashboard">
                     <div class="project-content">
-                        <h4 class="project-card-title"> ✈️ Airline Performance & Delay Analysis Dashboard (Power BI)</h4>
+                        <h4 class="project-card-title">✈️ Airline Performance & Delay Analysis Dashboard (Power BI)</h4>
                         <p class="project-description">Developed an interactive Power BI dashboard analyzing over 1.9M flights, including 177K early and 35K on-time flights. Performed data cleaning using Power Query, designed a star schema model, and implemented DAX measures to track delay rates, cancellations, and time-based trends.</p>
                         <div class="project-tech">
                             <span class="tech-tag">Power Bi</span>
@@ -325,7 +353,7 @@
                     </div>
                 </div>
             </a>
-              <!-- Project Card 2 -->
+              <!-- Project Card 3 -->
             <a href="https://github.com/MohamedAtef721/Sales-Dashboard-Power-BI-" target="_blank" class="project-card-link project-item g-fade-in-up">
                 <div class="project-card">
                     <img class="project-image" src="icons/Sales Dashboard - Power BI (AdventureWorks).png" alt="Sales Analysis Dashboard">
@@ -347,7 +375,7 @@
             </a>
 
 
-             <!-- Project Card 3 -->
+             <!-- Project Card 4 -->
             <a href="https://github.com/MohamedAtef721/AdventureWorks-Sales-Analysis-Power-bi-Dashboard" target="_blank" class="project-card-link project-item g-fade-in-up">
                 <div class="project-card">
                     <img class="project-image" src="icons/Sales Analysis Dashboard.png" alt="Sales Analysis Dashboard">
@@ -369,7 +397,7 @@
             </a>
 
 
-             <!-- Project Card 4 -->
+             <!-- Project Card 5 -->
             <a href="https://github.com/MohamedAtef721/Sales-Analysis-Excel-Dashboard" target="_blank" class="project-card-link project-item g-fade-in-up">
                 <div class="project-card">
                     <img class="project-image" src="icons/Sales Analysis Dashboard (Excel).png" alt="Sales Analysis Dashboard (Excel)">
@@ -392,7 +420,7 @@
             </a>
 
 
-            <!-- Project Card 5 -->
+            <!-- Project Card 6 -->
             <a href="https://github.com/MohamedAtef721/Smart-Clinic-Management-System" target="_blank" class="project-card-link project-item g-fade-in-up">
                 <div class="project-card">
                     <img class="project-image" src="icons/Smart-Clinic-Management-System.png" alt="Clinic Management System">
@@ -415,8 +443,8 @@
             </a>
 
 
-           <!-- Project Card 6 -->
-            <a href="https://github.com/MohamedAtef721/Movies-Analysis" target="_blank" class="project-card-link project-item g-fade-in-up">
+           <!-- Project Card 7 -->
+            <a href="https://github.com/MohamedAtef721/Movies-Analysis" target="_blank" class="project-card-link project-item project-item-hidden g-fade-in-up">
                 <div class="project-card">
                     <img class="project-image" src="icons/Red Black Modern Cinema Movie Presentation.jpg" alt="Movie Analysis">
                     <div class="project-content">
@@ -440,7 +468,7 @@
             </a>
 
 
-            <!-- Project Card 7 -->
+            <!-- Project Card 8 -->
              <a href="https://github.com/MohamedAtef721/Books-Sales-EDA-Visualization" target="_blank" class="project-card-link project-item project-item-hidden g-fade-in-up">
                 <div class="project-card">
                     <img class="project-image" src="icons/Books Sales & Ratings Analysis.jpg" alt="Books Analysis">
@@ -461,7 +489,7 @@
             </a>
 
 
-            <!-- Project Card 8 -->
+            <!-- Project Card 9 -->
             <a href="https://github.com/MohamedAtef721/Telecom-Management-System-sql-Project" target="_blank" class="project-card-link project-item project-item-hidden g-fade-in-up">
                 <div class="project-card">
                     <img class="project-image" src="icons/Telecom-Management-System-sql.jpg" alt="SQL Project">
@@ -484,7 +512,7 @@
             </a>
 
 
-            <!-- Project Card 9 -->
+            <!-- Project Card 10 -->
             <a href="https://github.com/MohamedAtef721/E-Commerce-Analytics" target="_blank" class="project-card-link project-item project-item-hidden g-fade-in-up">
                 <div class="project-card">
                     <img class="project-image" src="icons/E-Commerce Analytics (2).jpg" alt="E-Commerce">
@@ -507,7 +535,7 @@
             </a>
             
 
-            <!-- Project Card 10 -->
+            <!-- Project Card 11 -->
             <a href="https://github.com/MohamedAtef721/Car-Price-Prediction" target="_blank" class="project-card-link project-item project-item-hidden g-fade-in-up">
                 <div class="project-card">
                     <img class="project-image" src="icons/Car Price Prediction (1).jpg" alt="ML Project">
@@ -531,7 +559,7 @@
             </a>
 
 
-            <!-- Project Card 11  -->
+            <!-- Project Card 12  -->
             <a href="https://github.com/MohamedAtef721/Diabetes-Prediction" target="_blank" class="project-card-link project-item project-item-hidden g-fade-in-up">
                 <div class="project-card">
                     <img class="project-image" src="icons/Diabetes.jpg" alt="Health Analysis">
@@ -610,37 +638,49 @@
         });
         
         // Load More Projects Function
-        let projectsExpanded = false;
-        
+        const INITIAL_VISIBLE = 6; // number of cards visible by default
+        const STEP = 3;            // number of cards revealed per "Show More" click
+        let visibleCount = INITIAL_VISIBLE;
+
         function loadMoreProjects() {
             const allProjects = document.querySelectorAll('.project-item');
             const btn = document.getElementById('loadMoreBtn');
             const btnText = document.getElementById('btnText');
             const btnIcon = btn.querySelector('i');
-            
-            if (!projectsExpanded) {
-                // Show all projects with animation
+
+            if (visibleCount < allProjects.length) {
+                // Reveal the next batch of hidden projects
+                const nextCount = Math.min(visibleCount + STEP, allProjects.length);
+
                 allProjects.forEach((project, index) => {
-                    if (index >= 6) { // Animate projects after the 6th one (index 5)
+                    if (index >= visibleCount && index < nextCount) {
                         setTimeout(() => {
                             project.classList.remove('project-item-hidden');
-                            gsap.fromTo(project, 
+                            gsap.fromTo(project,
                                 { opacity: 0, y: 30 },
                                 { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }
                             );
-                        }, (index - 6) * 100);
+                        }, (index - visibleCount) * 100);
                     }
                 });
-                
-                // Change button to "Show Less"
-                btnText.textContent = 'Show Less';
-                btnIcon.classList.remove('fa-chevron-down');
-                btnIcon.classList.add('fa-chevron-up');
-                projectsExpanded = true;
+
+                visibleCount = nextCount;
+
+                if (visibleCount >= allProjects.length) {
+                    // All projects are now visible, switch button to "Show Less"
+                    btnText.textContent = 'Show Less';
+                    btnIcon.classList.remove('fa-chevron-down');
+                    btnIcon.classList.add('fa-chevron-up');
+                } else {
+                    // Still more to reveal, keep button as "Show More"
+                    btnText.textContent = 'Show More Projects';
+                    btnIcon.classList.remove('fa-chevron-up');
+                    btnIcon.classList.add('fa-chevron-down');
+                }
             } else {
-                // Hide projects again
+                // All projects are visible, collapse back to the initial count
                 allProjects.forEach((project, index) => {
-                    if (index >= 6) { // Hide projects after the 6th one
+                    if (index >= INITIAL_VISIBLE) {
                         gsap.to(project, {
                             opacity: 0,
                             y: -20,
@@ -654,12 +694,13 @@
                         });
                     }
                 });
-                
+
+                visibleCount = INITIAL_VISIBLE;
+
                 // Change button back to "Show More"
                 btnText.textContent = 'Show More Projects';
                 btnIcon.classList.remove('fa-chevron-up');
                 btnIcon.classList.add('fa-chevron-down');
-                projectsExpanded = false;
             }
         }
     </script>
