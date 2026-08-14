@@ -143,9 +143,11 @@
         .cv-btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
             margin-top: 1.5rem;
             padding: 12px 30px;
+            min-width: 240px;
             background: var(--accent-gradient);
             color: white !important;
             border-radius: 50px;
@@ -160,6 +162,41 @@
             filter: brightness(1.1);
             box-shadow: 0 15px 25px var(--glow-color);
             text-decoration: none;
+        }
+        .btn-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .btn-row .cv-btn { margin-top: 1.5rem; }
+
+        /* Smaller variant */
+        .cv-btn-sm {
+            /*padding: 9px 22px;*/
+            min-width: 170px;
+            /*font-size: 0.9rem;*/
+        }
+
+        /* Secondary "View Project" Button - gradient border, fills solid on hover */
+        .project-btn {
+            position: relative;
+            background: var(--card-bg-color);
+            color: var(--theme-color) !important;
+            border: 2px solid transparent;
+            background-image: linear-gradient(var(--card-bg-color), var(--card-bg-color)), var(--accent-gradient);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            transition: 0.3s;
+        }
+        .project-btn:hover {
+            background-image: var(--accent-gradient);
+            color: white !important;
+            box-shadow: 0 15px 25px var(--glow-color);
+        }
+        @media (max-width: 991px) {
+            .project-btn { margin-top: 0; }
         }
 
         /* Sections Styling */
@@ -221,6 +258,7 @@ footer {
 
         @media (max-width: 991px) {
             .modern-profile { flex-direction: column-reverse; text-align: center; }
+            .btn-row { justify-content: center; }
             .post-title { font-size: 3rem; }
         
         }
@@ -510,9 +548,14 @@ footer {
                 </div>
                 
                 <!-- NEW CV Button -->
-               <a href="javascript:void(0)" onclick="openViewer('https://drive.google.com/file/d/1wGtSYGh2wv9IabrjC9GZd7dKvfMoSgd7/view?usp=sharing', 'Mohamed Atef - CV')" class="cv-btn g-fade-in-up">
-                    <i class="fas fa-file-pdf"></i> View & Download CV
-                </a>
+                <div class="btn-row">
+                    <a href="javascript:void(0)" onclick="openViewer('https://drive.google.com/file/d/1wGtSYGh2wv9IabrjC9GZd7dKvfMoSgd7/view?usp=sharing', 'Mohamed Atef - CV')" class="cv-btn g-fade-in-up">
+                        <i class="fas fa-file-pdf"></i> View & Download CV
+                    </a>
+                    <a href="./Projects.html" class="cv-btn cv-btn-sm g-fade-in-up">
+                        <i class="fas fa-folder-open"></i> View Projects
+                    </a>
+                </div>
 
             </div>
              <!-- profile-pic -->
